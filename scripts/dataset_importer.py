@@ -2,7 +2,7 @@ import pandas as pd
 import functions
 
 # Load dataset
-hotels = pd.read_csv('data/Hotel_Reviews.csv')
+hotels = pd.read_csv('../data/Hotel_Reviews.csv')
 
 # Create a smaller dataset with only necessary values
 hotels_short = hotels[['Hotel_Address', 'Hotel_Name', 'Reviewer_Nationality', 'Positive_Review', 'Negative_Review',

@@ -3,7 +3,7 @@
 import pandas as pd
 import numpy as np
 import re
-from db_class import Db
+from functions.db_class import Db
 from sqlalchemy import create_engine
 
 # Initiate a new DB connection
