@@ -33,7 +33,7 @@ def get_country_from_long(x):
         x = 'United States of America'
     q = "SELECT * from countries where fullName='"+x+"'"
     result = db.select(q, all=False)
-    if len(result) == 0:
+    if result is None:
         q = "SELECT * from countries where idCountry='254'"
         result = db.select(q, all=False)
     return result

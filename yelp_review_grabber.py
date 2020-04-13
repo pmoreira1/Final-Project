@@ -12,7 +12,14 @@ q = "SELECT * FROM business where platform = 'yelp' and updated = 0"
 business = fc.db.select(q, all=True)
 
 # Driver for webscrapping
+# For Windows
 driver = webdriver.Chrome('chromedriver.exe')
+
+# For headless Linux
+# chrome_options = Options()
+# chrome_options.add_argument("--headless")
+# driver = webdriver.Chrome('/usr/bin/chromedriver', options=chrome_options)
+
 for b in business:
     url = 'https://api.yelp.com/v3/businesses/'+b['idPlatform']+'/reviews'
     r = requests.get(url, headers=headers)
@@ -21,7 +28,7 @@ for b in business:
         user_profile = review['user']['profile_url']
         driver.get(user_profile)
         content = driver.page_source
-        soup = BeautifulSoup(content)
+        soup = BeautifulSoup(content, "html.parser")
         review_origin = soup.find('h3', attrs={'class': 'user-location alternate'})
         # Split and get last value
         review_details = review_origin.text.split(', ')
@@ -33,6 +40,4 @@ for b in business:
     update_val = (b['idbusiness'],)
     fc.db.update(update_q, update_val)
     print(b['business'], 'Updated')
-    time.sleep(5)
-
 driver.quit()
