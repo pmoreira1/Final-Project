@@ -45,3 +45,12 @@ class Db:
         inserted_rows = cx.rowcount
         self.close_connection(cnx)
         return inserted_rows
+
+    def update(self, query, val):
+        cnx = self.connect()
+        cx = self.create_cursor(cnx)
+        cx.execute(query, val)
+        cnx.commit()
+        updated_rows = cx.rowcount
+        self.close_connection(cnx)
+        return updated_rows

@@ -27,6 +27,18 @@ def get_country(x):
         return x.split(" ")[-1]
 
 
+def get_country_from_long(x):
+    # IF TWO LETTERS IS US STATE RETURN United States
+    if len(x) == 2:
+        x = 'United States of America'
+    q = "SELECT * from countries where fullName='"+x+"'"
+    result = db.select(q, all=False)
+    if len(result) == 0:
+        q = "SELECT * from countries where idCountry='254'"
+        result = db.select(q, all=False)
+    return result
+
+
 def create_pd_engine():
     host = 'ironhack.c1wtctuqirxg.eu-central-1.rds.amazonaws.com'
     port = 3306

@@ -9,7 +9,7 @@ hotels_short = hotels[['Hotel_Address', 'Hotel_Name', 'Reviewer_Nationality', 'P
                        'Average_Score', 'Reviewer_Score', 'lat', 'lng']]
 
 # Drop rows with na value
-hotels_short.dropna()
+hotels_short.dropna(inplace=True)
 
 # Get Hotel Country from Hotel Address
 hotels_short['Country'] = hotels_short['Hotel_Address'].apply(lambda x: functions.get_country(x))
@@ -43,8 +43,14 @@ final_review_data['reviewer_country'].replace(country_trans_dict, inplace=True)
 # Add category for all hotels
 final_review_data['review_category'] = '1'
 
+# Reset index
+final_review_data.reset_index(drop=True, inplace=True)
 
-for i, r in final_review_data.iterrows():
+# Save CSV
+final_review_data.to_csv('data/hotel_clean.csv')
+
+# Save one by one on DB.
+for i, r in final_review_data[165208:].iterrows():
     q = "INSERT INTO `final_project`.`reviews` (`name`, `reviewer_score`, `reviewer_country`, `review_country`, `review_average`, `review_category`, `lat`,`long`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
     val = (r['name'], r['reviewer_score'], r['reviewer_country'], r['review_country'], r['review_average'],
            r['review_category'], r['lat'], r['long'])
