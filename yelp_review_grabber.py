@@ -34,8 +34,8 @@ for i in range(100):
                 continue
             country = fc.get_country_from_long(review_details[-1])['idCountry']
             # print(country)
-            query = "INSERT INTO `reviews` (`name`,`idBusiness`,`reviewer_score`, `reviewer_score_cal`, `reviewer_country`, `review_country`, `review_average`, `review_average_cal`, `review_category`, `lat`, `long`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-            val = (b['business'], b['idbusiness'], review['rating'], review['rating']/5, country, b['country'], b['rating'], b['rating']/5, b['category'], b['lat'], b['long'])
+            query = "INSERT INTO `reviews` (`idBusiness`,`reviewer_score`, `reviewer_score_cal`, `reviewer_country`) VALUES (%s,%s,%s,%s)"
+            val = (b['idbusiness'], review['rating'], review['rating']/5, country)
             fc.db.insert(query, val)
         update_q = "UPDATE business set updated = 1 where idbusiness=%s"
         update_val = (b['idbusiness'],)
