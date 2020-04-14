@@ -1,7 +1,7 @@
 # Script that will store all business in a db table
 # Be having this separated it makes it easier to pick the reviews with a separate script
 # Especially helpfull due to rate-limiting, and if needed spread the load via other VMs
-import functions as fc
+import functions.functions as fc
 import requests
 from pprint import pprint
 

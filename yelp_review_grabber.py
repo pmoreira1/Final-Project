@@ -1,4 +1,4 @@
-import functions as fc
+from functions import functions as fc
 import requests
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -30,10 +30,14 @@ for b in business:
         soup = BeautifulSoup(content, "html.parser")
         review_origin = soup.find('h3', attrs={'class': 'user-location alternate'})
         # Split and get last value
-        review_details = review_origin.text.split(', ')
+        if review_origin.text is not None:
+            review_details = review_origin.text.split(', ')
+        else:
+            continue
         country = fc.get_country_from_long(review_details[-1])['idCountry']
-        query = "INSERT INTO `reviews` (`name`, `reviewer_score`, `reviewer_country`, `review_country`, `review_average`, `review_category`, `lat`, `long`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
-        val = (b['business'], review['rating'], country, b['country'], b['rating'], b['category'], b['lat'], b['long'])
+        # print(country)
+        query = "INSERT INTO `reviews` (`name`,`idBusiness`,`reviewer_score`, `reviewer_score_cal`, `reviewer_country`, `review_country`, `review_average`, `review_average_cal`, `review_category`, `lat`, `long`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+        val = (b['business'], b['idbusiness'], review['rating'], review['rating']/5, country, b['country'], b['rating'], b['rating']/5, b['category'], b['lat'], b['long'])
         fc.db.insert(query, val)
     update_q = "UPDATE business set updated = 1 where idbusiness=%s"
     update_val = (b['idbusiness'],)
