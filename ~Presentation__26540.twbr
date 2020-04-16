@@ -1,0 +1,2001 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20201.20.0326.1623                               -->
+<workbook source-build='2020.1.2 (20201.20.0326.1623)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
+    <MapboxVectorStylesAndLayers />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <NavigationAction />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+    <WorksheetBackgroundTransparency />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='business+ (final_project)' inline='true' name='federated.1d39w141bcdhi6185dynt112c2v3' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='ironhack.c1wtctuqirxg.eu-central-1.rds.amazonaws.com' name='mysql.0505ppm15vzus018fn3y403iy6rf'>
+            <connection class='mysql' dbname='final_project' odbc-native-protocol='' one-time-sql='' port='3306' server='ironhack.c1wtctuqirxg.eu-central-1.rds.amazonaws.com' source-charset='' username='final_admin' />
+          </named-connection>
+        </named-connections>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[business].[country]' />
+              <expression op='[business_country].[idCountry]' />
+            </expression>
+          </clause>
+          <relation join='inner' type='join'>
+            <clause type='join'>
+              <expression op='='>
+                <expression op='[reviews].[reviewer_country]' />
+                <expression op='[review_country].[idCountry]' />
+              </expression>
+            </clause>
+            <relation join='inner' type='join'>
+              <clause type='join'>
+                <expression op='='>
+                  <expression op='[business].[idbusiness]' />
+                  <expression op='[reviews].[idBusiness]' />
+                </expression>
+              </clause>
+              <relation join='inner' type='join'>
+                <clause type='join'>
+                  <expression op='='>
+                    <expression op='[business].[category]' />
+                    <expression op='[business_category].[idBusiness_category]' />
+                  </expression>
+                </clause>
+                <relation connection='mysql.0505ppm15vzus018fn3y403iy6rf' name='business' table='[business]' type='table' />
+                <relation connection='mysql.0505ppm15vzus018fn3y403iy6rf' name='business_category' table='[business_category]' type='table' />
+              </relation>
+              <relation connection='mysql.0505ppm15vzus018fn3y403iy6rf' name='reviews' table='[reviews]' type='table' />
+            </relation>
+            <relation connection='mysql.0505ppm15vzus018fn3y403iy6rf' name='review_country' table='[countries]' type='table' />
+          </relation>
+          <relation connection='mysql.0505ppm15vzus018fn3y403iy6rf' name='business_country' table='[countries]' type='table' />
+        </relation>
+        <cols>
+          <map key='[2letterCode (countries1)]' value='[business_country].[2letterCode]' />
+          <map key='[2letterCode]' value='[review_country].[2letterCode]' />
+          <map key='[3letterCode (countries1)]' value='[business_country].[3letterCode]' />
+          <map key='[3letterCode]' value='[review_country].[3letterCode]' />
+          <map key='[business]' value='[business].[business]' />
+          <map key='[business_type]' value='[business_category].[business_type]' />
+          <map key='[category]' value='[business].[category]' />
+          <map key='[country]' value='[business].[country]' />
+          <map key='[fullName (countries1)]' value='[business_country].[fullName]' />
+          <map key='[fullName]' value='[review_country].[fullName]' />
+          <map key='[idBusiness]' value='[reviews].[idBusiness]' />
+          <map key='[idBusiness_category]' value='[business_category].[idBusiness_category]' />
+          <map key='[idCountry (countries1)]' value='[business_country].[idCountry]' />
+          <map key='[idCountry]' value='[review_country].[idCountry]' />
+          <map key='[idPlatform]' value='[business].[idPlatform]' />
+          <map key='[idReview]' value='[reviews].[idReview]' />
+          <map key='[idbusiness]' value='[business].[idbusiness]' />
+          <map key='[lat]' value='[business].[lat]' />
+          <map key='[long]' value='[business].[long]' />
+          <map key='[platform]' value='[business].[platform]' />
+          <map key='[rating]' value='[business].[rating]' />
+          <map key='[rating_cal]' value='[business].[rating_cal]' />
+          <map key='[review_count]' value='[business].[review_count]' />
+          <map key='[reviewer_country]' value='[reviews].[reviewer_country]' />
+          <map key='[reviewer_score]' value='[reviews].[reviewer_score]' />
+          <map key='[reviewer_score_cal]' value='[reviews].[reviewer_score_cal]' />
+          <map key='[updated]' value='[business].[updated]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>idbusiness</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[idbusiness]</local-name>
+            <parent-name>[business]</parent-name>
+            <remote-alias>idbusiness</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>business</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[business]</local-name>
+            <parent-name>[business]</parent-name>
+            <remote-alias>business</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>21845</width>
+            <contains-null>false</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation charset='290' flag='1' name='LROOT_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>lat</remote-name>
+            <remote-type>4</remote-type>
+            <local-name>[lat]</local-name>
+            <parent-name>[business]</parent-name>
+            <remote-alias>lat</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>6</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_REAL&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_FLOAT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>long</remote-name>
+            <remote-type>4</remote-type>
+            <local-name>[long]</local-name>
+            <parent-name>[business]</parent-name>
+            <remote-alias>long</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>6</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_REAL&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_FLOAT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>platform</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[platform]</local-name>
+            <parent-name>[business]</parent-name>
+            <remote-alias>platform</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>45</width>
+            <contains-null>false</contains-null>
+            <collation charset='290' flag='1' name='LROOT_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>idPlatform</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[idPlatform]</local-name>
+            <parent-name>[business]</parent-name>
+            <remote-alias>idPlatform</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>45</width>
+            <contains-null>false</contains-null>
+            <collation charset='290' flag='1' name='LROOT_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>country</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[country]</local-name>
+            <parent-name>[business]</parent-name>
+            <remote-alias>country</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>45</width>
+            <contains-null>false</contains-null>
+            <collation charset='290' flag='1' name='LROOT_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>category</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[category]</local-name>
+            <parent-name>[business]</parent-name>
+            <remote-alias>category</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rating</remote-name>
+            <remote-type>4</remote-type>
+            <local-name>[rating]</local-name>
+            <parent-name>[business]</parent-name>
+            <remote-alias>rating</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>6</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_REAL&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_FLOAT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rating_cal</remote-name>
+            <remote-type>4</remote-type>
+            <local-name>[rating_cal]</local-name>
+            <parent-name>[business]</parent-name>
+            <remote-alias>rating_cal</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>6</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_REAL&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_FLOAT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>updated</remote-name>
+            <remote-type>16</remote-type>
+            <local-name>[updated]</local-name>
+            <parent-name>[business]</parent-name>
+            <remote-alias>updated</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>3</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TINYINT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_STINYINT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>review_count</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[review_count]</local-name>
+            <parent-name>[business]</parent-name>
+            <remote-alias>review_count</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>idBusiness_category</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[idBusiness_category]</local-name>
+            <parent-name>[business_category]</parent-name>
+            <remote-alias>idBusiness_category</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>business_type</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[business_type]</local-name>
+            <parent-name>[business_category]</parent-name>
+            <remote-alias>business_type</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>45</width>
+            <contains-null>false</contains-null>
+            <collation charset='290' flag='1' name='LROOT_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>idReview</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[idReview]</local-name>
+            <parent-name>[reviews]</parent-name>
+            <remote-alias>idReview</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>idBusiness</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[idBusiness]</local-name>
+            <parent-name>[reviews]</parent-name>
+            <remote-alias>idBusiness</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>reviewer_score</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[reviewer_score]</local-name>
+            <parent-name>[reviews]</parent-name>
+            <remote-alias>reviewer_score</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DOUBLE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>reviewer_score_cal</remote-name>
+            <remote-type>4</remote-type>
+            <local-name>[reviewer_score_cal]</local-name>
+            <parent-name>[reviews]</parent-name>
+            <remote-alias>reviewer_score_cal</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>6</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_REAL&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_FLOAT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>reviewer_country</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[reviewer_country]</local-name>
+            <parent-name>[reviews]</parent-name>
+            <remote-alias>reviewer_country</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>idCountry</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[idCountry]</local-name>
+            <parent-name>[review_country]</parent-name>
+            <remote-alias>idCountry</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>fullName</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[fullName]</local-name>
+            <parent-name>[review_country]</parent-name>
+            <remote-alias>fullName</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>21845</width>
+            <contains-null>false</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation charset='290' flag='1' name='LROOT_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>2letterCode</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[2letterCode]</local-name>
+            <parent-name>[review_country]</parent-name>
+            <remote-alias>2letterCode</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>21845</width>
+            <contains-null>false</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation charset='290' flag='1' name='LROOT_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>3letterCode</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[3letterCode]</local-name>
+            <parent-name>[review_country]</parent-name>
+            <remote-alias>3letterCode</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>21845</width>
+            <contains-null>false</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation charset='290' flag='1' name='LROOT_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>idCountry</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[idCountry (countries1)]</local-name>
+            <parent-name>[business_country]</parent-name>
+            <remote-alias>idCountry</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>fullName</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[fullName (countries1)]</local-name>
+            <parent-name>[business_country]</parent-name>
+            <remote-alias>fullName</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>21845</width>
+            <contains-null>false</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation charset='290' flag='1' name='LROOT_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>2letterCode</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[2letterCode (countries1)]</local-name>
+            <parent-name>[business_country]</parent-name>
+            <remote-alias>2letterCode</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>21845</width>
+            <contains-null>false</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation charset='290' flag='1' name='LROOT_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>3letterCode</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[3letterCode (countries1)]</local-name>
+            <parent-name>[business_country]</parent-name>
+            <remote-alias>3letterCode</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>21845</width>
+            <contains-null>false</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation charset='290' flag='1' name='LROOT_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='string' hidden='true' name='[2letterCode (countries1)]' role='dimension' type='nominal' />
+      <column datatype='string' hidden='true' name='[2letterCode]' role='dimension' type='nominal' />
+      <column datatype='string' hidden='true' name='[3letterCode (countries1)]' role='dimension' type='nominal' />
+      <column datatype='string' hidden='true' name='[3letterCode]' role='dimension' type='nominal' />
+      <column datatype='string' name='[:Measure Names]' role='dimension' type='nominal'>
+        <aliases>
+          <alias key='&quot;[federated.1d39w141bcdhi6185dynt112c2v3].[usr:Calculation_488640599770968070:qk]&quot;' value='Difference' />
+        </aliases>
+      </column>
+      <column caption='Business Rating' datatype='real' name='[Calculation_488640599759355905]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[rating_cal] * 10' />
+      </column>
+      <column caption='Reviewer Rating' datatype='real' default-format='n#,##0.00;-#,##0.00' name='[Calculation_488640599759564802]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[reviewer_score_cal]*10' />
+      </column>
+      <column caption='Diff from Business Rating' datatype='real' name='[Calculation_488640599880548359]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[Calculation_488640599759564802]-[Calculation_488640599759355905]' />
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Business Type' datatype='string' name='[business_type]' role='dimension' type='nominal' />
+      <column aggregation='Sum' datatype='integer' hidden='true' name='[category]' role='dimension' type='ordinal' />
+      <column datatype='string' hidden='true' name='[country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='Business Country' datatype='string' name='[fullName (countries1)]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+      <column caption='Reviewer Country' datatype='string' name='[fullName]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+      <column aggregation='Sum' datatype='integer' hidden='true' name='[idBusiness]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' hidden='true' name='[idBusiness_category]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' hidden='true' name='[idCountry (countries1)]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' hidden='true' name='[idCountry]' role='dimension' type='ordinal' />
+      <column datatype='string' hidden='true' name='[idPlatform]' role='dimension' type='nominal' />
+      <column datatype='integer' hidden='true' name='[idReview]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[idbusiness]' role='dimension' type='ordinal' />
+      <column aggregation='Avg' datatype='real' name='[lat]' role='measure' semantic-role='[Geographical].[Latitude]' type='quantitative' />
+      <column aggregation='Avg' datatype='real' name='[long]' role='measure' semantic-role='[Geographical].[Longitude]' type='quantitative' />
+      <column datatype='real' hidden='true' name='[rating]' role='measure' type='quantitative' />
+      <column datatype='real' hidden='true' name='[rating_cal]' role='measure' type='quantitative' />
+      <column aggregation='Sum' datatype='integer' hidden='true' name='[reviewer_country]' role='dimension' type='ordinal' />
+      <column datatype='real' hidden='true' name='[reviewer_score]' role='measure' type='quantitative' />
+      <column datatype='real' hidden='true' name='[reviewer_score_cal]' role='measure' type='quantitative' />
+      <column datatype='integer' hidden='true' name='[updated]' role='measure' type='quantitative' />
+      <column-instance column='[Calculation_488640599759355905]' derivation='Avg' name='[avg:Calculation_488640599759355905:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_488640599759564802]' derivation='Avg' name='[avg:Calculation_488640599759564802:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[fullName]' derivation='None' name='[none:fullName:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+      <group caption='Action (Reviewer Country)' hidden='true' name='[Action (Reviewer Country)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[fullName]' />
+        </groupfilter>
+      </group>
+      <mapped-images>
+        <mapped-image caption='Hotel-Room-Safety' expression='file:///D:/Documents/IronHack/projects/Final-Project/pics/Hotel-Room-Safety.jpg' name='[MappedImage1]'>
+          <mapping bottom='-1.0' left='-1.0' right='10.0' top='10.0' x='[Calculation_488640599759564802]' y='[Calculation_488640599759355905]' />
+        </mapped-image>
+      </mapped-images>
+      <layout dim-ordering='alphabetic' dim-percentage='0.506219' measure-ordering='alphabetic' measure-percentage='0.493781' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:fullName:nk]' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;Antarctica&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Bosnia and Herzegovina&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Costa Rica&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Faroe Islands&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Haiti&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Kiribati&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Malta&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Nigeria&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Saint Barts&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Sri Lanka&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Turks Caicos Islands&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Abkhazia Georgia&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Belarus&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Central Africa Republic&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Ecuador&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Greece&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Italy&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Luxembourg&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Myanmar&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Poland&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Singapore&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Tanzania&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Vatican City&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;American Samoa&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Bermuda&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Colombia&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Eritrea&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Guatemala&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Jersey&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Malawi&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;New Caledonia&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Réunion&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;South Africa&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Trinidad and Tobago&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Yemen&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Aruba&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Brunei&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Cyprus&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;French Guiana&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Iceland&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Laos&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Mexico&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Pakistan&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Saint Vincent Grenadines&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Suriname&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Ukraine&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Antigua Barbuda&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Botswana&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Crimea&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Fiji&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Honduras&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Kosovo&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Martinique&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Northern Mariana Islands&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Saint Kitts and Nevis&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;St Maarten&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Tuvalu&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Andorra&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Bhutan&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Comoros&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Estonia&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Guernsey&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Jordan&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Malaysia&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;New Zealand&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Romania&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;South Korea&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Tunisia&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Zambia&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Bangladesh&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Cape Verde&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Dominican Republic&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Ghana&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Isle of Man&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Liechtenstein&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Morocco&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Peru&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Seychelles&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Taiwan&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Uzbekistan&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Afghanistan&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Belgium&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Chile&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Egypt&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Grenada&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Ivory Coast&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Macau&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;N/D&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Portugal&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Slovakia&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Thailand&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Venezuela&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Bahamas&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Cameroon&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Djibouti&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Georgia&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Iraq&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Liberia&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Montenegro&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Papua New Guinea&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Senegal&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Switzerland&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;United States of America&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Angola&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Bolivia&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Congo&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Ethiopia&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Guinea&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Kazakhstan&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Maldives&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Nicaragua&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Russia&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;South Sudan&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Turkey&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Zimbabwe&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Australia&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Bulgaria&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Czech Republic&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;French Polynesia&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;India&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Latvia&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Moldova&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Palau&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Samoa&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Svalbard Jan Mayen&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;United Arab Emirates&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Austria&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Burundi&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Democratic Republic of the Congo&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Gabon&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Indonesia&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Lebanon&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Monaco&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Palestinian Territory&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;San Marino&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Swaziland&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;United Kingdom&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Bahrain&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Canada&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Dominica&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Germany&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Ireland&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Libya&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Montserrat&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Paraguay&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Serbia&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Syria&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Uruguay&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Barbados&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Cayman Islands&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;East Timor&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Gibraltar&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Israel&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Lithuania&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Mozambique&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Philippines&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Sierra Leone&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Tajikistan&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Vanuatu&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Argentina&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Brazil&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Croatia&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Finland&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Hong Kong&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Kuwait&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Mauritania&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Norway&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Saint Lucia&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;St Pierre and Miquelon&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;U S Virgin Islands&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Anguilla&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Bonaire St Eustatius and Saba&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Cook Islands&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Falkland Islands Malvinas&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Guyana&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Kenya&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Mali&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Niger&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Rwanda&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Spain&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Turkmenistan&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Albania&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Belize&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;China&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;El Salvador&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Guadeloupe&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Jamaica&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Macedonia&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Namibia&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Puerto Rico&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Slovenia&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;The Netherlands&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Vietnam&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Azerbaijan&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Cambodia&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Denmark&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Gambia&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Iran&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Lesotho&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Mongolia&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Panama&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Saudi Arabia&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Sweden&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;United States Minor Outlying Islands&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Armenia&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;British Virgin Islands&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Cura ao&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;France&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Hungary&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Kyrgyzstan&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Mauritius&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Oman&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Saint Martin&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Sudan&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Uganda&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Algeria&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Benin&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Cocos K I&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Equatorial Guinea&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Guam&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Japan&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Madagascar&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Nepal&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Qatar&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Somalia&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Togo&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Wallis and Futuna&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1d39w141bcdhi6185dynt112c2v3].[avg:Calculation_488640599759355905:qk]&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;[federated.1d39w141bcdhi6185dynt112c2v3].[sum:Number of Records:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.1d39w141bcdhi6185dynt112c2v3].[usr:Calculation_488640599770968070:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1d39w141bcdhi6185dynt112c2v3].[avg:Calculation_488640599759564802:qk]&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Netherlands&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <field-sort-info field-sort-order-type='custom-order'>
+        <field-sort-custom-order field='idbusiness' />
+        <field-sort-custom-order field='business' />
+        <field-sort-custom-order field='lat' />
+        <field-sort-custom-order field='long' />
+        <field-sort-custom-order field='platform' />
+        <field-sort-custom-order field='rating' />
+        <field-sort-custom-order field='Calculation_488640599759355905' />
+        <field-sort-custom-order field='Calculation_488640599880548359' />
+        <field-sort-custom-order field='business_type' />
+        <field-sort-custom-order field='idCountry (countries1)' />
+        <field-sort-custom-order field='fullName (countries1)' />
+        <field-sort-custom-order field='idCountry' />
+        <field-sort-custom-order field='fullName' />
+        <field-sort-custom-order field='idBusiness' />
+        <field-sort-custom-order field='Calculation_488640599759564802' />
+        <field-sort-custom-order field='reviewer_country' />
+      </field-sort-info>
+    </datasource>
+  </datasources>
+  <mapsources>
+    <mapsource name='Tableau' />
+  </mapsources>
+  <actions>
+    <action caption='Reviewer Country' name='[Action2]'>
+      <activation type='on-select' />
+      <source dashboard='Hotel Demand' type='sheet' />
+      <link caption='Reviewer Country' delimiter=',' escape='\' expression='tsl:Customer%20Profile?%5Bfederated.1d39w141bcdhi6185dynt112c2v3%5D.%5BfullName%5D~s0=&lt;[fullName]~na&gt;' include-null='true' multi-select='true' url-escape='true' />
+      <command command='tsc:tsl-filter'>
+        <param name='target' value='Customer Profile' />
+      </command>
+    </action>
+    <action caption='Reviewer Country 1' name='[Action3]'>
+      <activation type='on-select' />
+      <source dashboard='Resturant Demand' type='sheet' />
+      <link caption='Reviewer Country 1' delimiter=',' escape='\' expression='tsl:Customer%20Profile?%5Bfederated.1d39w141bcdhi6185dynt112c2v3%5D.%5BfullName%5D~s0=&lt;[fullName]~na&gt;' include-null='true' multi-select='true' url-escape='true' />
+      <command command='tsc:tsl-filter'>
+        <param name='target' value='Customer Profile' />
+      </command>
+    </action>
+    <datasources>
+      <datasource caption='business+ (final_project)' name='federated.1d39w141bcdhi6185dynt112c2v3' />
+    </datasources>
+    <datasource-dependencies datasource='federated.1d39w141bcdhi6185dynt112c2v3'>
+      <column caption='Reviewer Country' datatype='string' name='[fullName]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+    </datasource-dependencies>
+    <nav-action caption='Customer Profile' name='[Action1]'>
+      <activation type='on-select' />
+      <source dashboard='Hotel Demand' type='sheet' worksheet='TOP 10  Demand - Hotel' />
+      <params>
+        <param name='sheet' value='Customer Profile' />
+      </params>
+    </nav-action>
+  </actions>
+  <worksheets>
+    <worksheet name='Business Distribution'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='business+ (final_project)' name='federated.1d39w141bcdhi6185dynt112c2v3' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.1d39w141bcdhi6185dynt112c2v3'>
+            <column caption='Business Type' datatype='string' name='[business_type]' role='dimension' type='nominal' />
+            <column aggregation='Avg' datatype='real' name='[lat]' role='measure' semantic-role='[Geographical].[Latitude]' type='quantitative' />
+            <column aggregation='Avg' datatype='real' name='[long]' role='measure' semantic-role='[Geographical].[Longitude]' type='quantitative' />
+            <column-instance column='[business_type]' derivation='None' name='[none:business_type:nk]' pivot='key' type='nominal' />
+            <column-instance column='[lat]' derivation='None' name='[none:lat:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[long]' derivation='None' name='[none:long:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1d39w141bcdhi6185dynt112c2v3].[none:long:qk]' field-type='quantitative' max='3410880.8820316098' min='-2472945.4382057465' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.1d39w141bcdhi6185dynt112c2v3].[none:lat:qk]' field-type='quantitative' max='7311973.3245027335' min='3906681.7533364682' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='b01002_001e' value='false' />
+            <format attr='enabled' id='b01002_002e' value='false' />
+            <format attr='enabled' id='b01002_003e' value='false' />
+            <format attr='enabled' id='dp02_0001e' value='false' />
+            <format attr='enabled' id='dp02_0015e' value='false' />
+            <format attr='enabled' id='dp03_0027e_plus_dp03_0029e' value='false' />
+            <format attr='enabled' id='dp03_0028e' value='false' />
+            <format attr='enabled' id='dp03_0030e_plus_dp03_0031e' value='false' />
+            <format attr='enabled' id='dp03_0062e' value='false' />
+            <format attr='enabled' id='dp03_0088e' value='false' />
+            <format attr='enabled' id='dp04_0001e' value='false' />
+            <format attr='enabled' id='dp04_0046e' value='false' />
+            <format attr='enabled' id='dp04_0047e' value='false' />
+            <format attr='enabled' id='dp04_0089e' value='false' />
+            <format attr='enabled' id='dp05_0001e' value='false' />
+            <format attr='enabled' id='dp05_0002e_div_dp05_0003e' value='false' />
+            <format attr='enabled' id='dp05_0032e' value='false' />
+            <format attr='enabled' id='dp05_0033e' value='false' />
+            <format attr='enabled' id='dp05_0034e' value='false' />
+            <format attr='enabled' id='dp05_0039e' value='false' />
+            <format attr='enabled' id='dp05_0047e' value='false' />
+            <format attr='enabled' id='dp05_0053e' value='false' />
+            <format attr='enabled' id='dp05_0066e' value='false' />
+            <format attr='enabled' id='dp05_0077e' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0' />
+            <format attr='map-style' value='light' />
+          </style-rule>
+          <style-rule element='map-data-layer'>
+            <format attr='palette' value='tableau-map-blue-green-light' />
+            <format attr='geo-area-type' value='State' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1d39w141bcdhi6185dynt112c2v3].[none:business_type:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1d39w141bcdhi6185dynt112c2v3].[none:lat:qk]</rows>
+        <cols>[federated.1d39w141bcdhi6185dynt112c2v3].[none:long:qk]</cols>
+      </table>
+      <simple-id uuid='{9A242C93-8DD7-4C25-A76E-86BFD5B64CBE}' />
+    </worksheet>
+    <worksheet name='Customer Profile'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='business+ (final_project)' name='federated.1d39w141bcdhi6185dynt112c2v3' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.1d39w141bcdhi6185dynt112c2v3'>
+            <column caption='Reviewer Country' datatype='string' name='[fullName]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+            <column-instance column='[fullName]' derivation='None' name='[none:fullName:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1d39w141bcdhi6185dynt112c2v3].[Action (Reviewer Country)]'>
+            <groupfilter function='member' level='[fullName]' member='&quot;United States of America&quot;' user:ui-action-filter='[Action2]' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1d39w141bcdhi6185dynt112c2v3].[Action (Reviewer Country)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+          </pane>
+        </panes>
+        <rows>[federated.1d39w141bcdhi6185dynt112c2v3].[none:fullName:nk]</rows>
+        <cols />
+      </table>
+      <simple-id uuid='{9D36D605-AE0D-4FB0-B35B-7072CB1F7488}' />
+    </worksheet>
+    <worksheet name='Reviews Per Nationality'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='business+ (final_project)' name='federated.1d39w141bcdhi6185dynt112c2v3' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.1d39w141bcdhi6185dynt112c2v3'>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column caption='Reviewer Country' datatype='string' name='[fullName]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+            <column-instance column='[fullName]' derivation='None' name='[none:fullName:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='size-bar' field='[federated.1d39w141bcdhi6185dynt112c2v3].[sum:Number of Records:qk]' field-type='quantitative' max-size='1' min-size='0.005' type='centersize' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <size column='[federated.1d39w141bcdhi6185dynt112c2v3].[sum:Number of Records:qk]' />
+              <text column='[federated.1d39w141bcdhi6185dynt112c2v3].[none:fullName:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-range-field' value='' />
+                <format attr='mark-labels-range-scope' value='cell' />
+                <format attr='mark-labels-mode' value='all' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{FFDCB225-3EE8-494E-B142-E10685E551B4}' />
+    </worksheet>
+    <worksheet name='TOP 10  Demand - Hotel'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='business+ (final_project)' name='federated.1d39w141bcdhi6185dynt112c2v3' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.1d39w141bcdhi6185dynt112c2v3'>
+            <column caption='Business Rating' datatype='real' name='[Calculation_488640599759355905]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[rating_cal] * 10' />
+            </column>
+            <column caption='Reviewer Rating' datatype='real' default-format='n#,##0.00;-#,##0.00' name='[Calculation_488640599759564802]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[reviewer_score_cal]*10' />
+            </column>
+            <column caption='Diff from Business Rating' datatype='real' name='[Calculation_488640599880548359]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[Calculation_488640599759564802]-[Calculation_488640599759355905]' />
+            </column>
+            <column-instance column='[Calculation_488640599880548359]' derivation='Avg' name='[avg:Calculation_488640599880548359:qk]' pivot='key' type='quantitative' />
+            <column caption='Business Type' datatype='string' name='[business_type]' role='dimension' type='nominal' />
+            <column caption='Reviewer Country' datatype='string' name='[fullName]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+            <column-instance column='[business_type]' derivation='None' name='[none:business_type:nk]' pivot='key' type='nominal' />
+            <column-instance column='[fullName]' derivation='None' name='[none:fullName:nk]' pivot='key' type='nominal' />
+            <column datatype='real' hidden='true' name='[rating_cal]' role='measure' type='quantitative' />
+            <column datatype='real' hidden='true' name='[reviewer_score_cal]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1d39w141bcdhi6185dynt112c2v3].[none:business_type:nk]'>
+            <groupfilter function='member' level='[none:business_type:nk]' member='&quot;Hotel&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1d39w141bcdhi6185dynt112c2v3].[none:fullName:nk]'>
+            <groupfilter count='10' end='top' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+              <groupfilter direction='DESC' expression='COUNT([fullName])' function='order' user:ui-marker='order'>
+                <groupfilter function='level-members' level='[none:fullName:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.1d39w141bcdhi6185dynt112c2v3].[none:fullName:nk]' direction='ASC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.1d39w141bcdhi6185dynt112c2v3].[avg:Calculation_488640599880548359:qk]' shelf='rows' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.1d39w141bcdhi6185dynt112c2v3].[none:fullName:nk]</column>
+            <column>[federated.1d39w141bcdhi6185dynt112c2v3].[none:business_type:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='height' field='[federated.1d39w141bcdhi6185dynt112c2v3].[avg:Calculation_488640599880548359:qk]' value='95' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='height' field='[federated.1d39w141bcdhi6185dynt112c2v3].[none:fullName:nk]' value='54' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='width' field='[federated.1d39w141bcdhi6185dynt112c2v3].[none:fullName:nk]' value='168' />
+            <format attr='background-color' field='[federated.1d39w141bcdhi6185dynt112c2v3].[avg:Calculation_488640599880548359:qk]' value='#ffffff' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='color' field='[federated.1d39w141bcdhi6185dynt112c2v3].[none:fullName:nk]' value='#ffffff' />
+            <format attr='color' field='[federated.1d39w141bcdhi6185dynt112c2v3].[avg:Calculation_488640599880548359:qk]' value='#ffffff' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#00000000' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='912' />
+                <format attr='maxwidth' value='912' />
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+                <format attr='aspect' value='0' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1d39w141bcdhi6185dynt112c2v3].[none:fullName:nk]</rows>
+        <cols>[federated.1d39w141bcdhi6185dynt112c2v3].[avg:Calculation_488640599880548359:qk]</cols>
+      </table>
+      <simple-id uuid='{FED18C5D-95F2-49AD-A9D0-51805A7B40E6}' />
+    </worksheet>
+    <worksheet name='TOP 10  Demand - Restaurants'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='business+ (final_project)' name='federated.1d39w141bcdhi6185dynt112c2v3' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.1d39w141bcdhi6185dynt112c2v3'>
+            <column caption='Business Rating' datatype='real' name='[Calculation_488640599759355905]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[rating_cal] * 10' />
+            </column>
+            <column caption='Reviewer Rating' datatype='real' default-format='n#,##0.00;-#,##0.00' name='[Calculation_488640599759564802]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[reviewer_score_cal]*10' />
+            </column>
+            <column caption='Diff from Business Rating' datatype='real' name='[Calculation_488640599880548359]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[Calculation_488640599759564802]-[Calculation_488640599759355905]' />
+            </column>
+            <column-instance column='[Calculation_488640599880548359]' derivation='Avg' name='[avg:Calculation_488640599880548359:qk]' pivot='key' type='quantitative' />
+            <column caption='Business Type' datatype='string' name='[business_type]' role='dimension' type='nominal' />
+            <column caption='Reviewer Country' datatype='string' name='[fullName]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+            <column-instance column='[business_type]' derivation='None' name='[none:business_type:nk]' pivot='key' type='nominal' />
+            <column-instance column='[fullName]' derivation='None' name='[none:fullName:nk]' pivot='key' type='nominal' />
+            <column datatype='real' hidden='true' name='[rating_cal]' role='measure' type='quantitative' />
+            <column datatype='real' hidden='true' name='[reviewer_score_cal]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1d39w141bcdhi6185dynt112c2v3].[none:business_type:nk]'>
+            <groupfilter function='member' level='[none:business_type:nk]' member='&quot;Restaurant&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1d39w141bcdhi6185dynt112c2v3].[none:fullName:nk]'>
+            <groupfilter count='10' end='top' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+              <groupfilter direction='DESC' expression='COUNT([fullName])' function='order' user:ui-marker='order'>
+                <groupfilter function='level-members' level='[none:fullName:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.1d39w141bcdhi6185dynt112c2v3].[none:fullName:nk]' direction='ASC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.1d39w141bcdhi6185dynt112c2v3].[avg:Calculation_488640599880548359:qk]' shelf='rows' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.1d39w141bcdhi6185dynt112c2v3].[none:fullName:nk]</column>
+            <column>[federated.1d39w141bcdhi6185dynt112c2v3].[none:business_type:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='height' field='[federated.1d39w141bcdhi6185dynt112c2v3].[none:fullName:nk]' value='56' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='width' field='[federated.1d39w141bcdhi6185dynt112c2v3].[none:fullName:nk]' value='140' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#00000000' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='912' />
+                <format attr='maxwidth' value='912' />
+                <format attr='minheight' value='560' />
+                <format attr='maxheight' value='560' />
+                <format attr='aspect' value='0' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1d39w141bcdhi6185dynt112c2v3].[none:fullName:nk]</rows>
+        <cols>[federated.1d39w141bcdhi6185dynt112c2v3].[avg:Calculation_488640599880548359:qk]</cols>
+      </table>
+      <simple-id uuid='{6967971C-0D76-4BBE-B40A-8B3638CB346D}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Hotel Demand'>
+      <style>
+        <style-rule element='dash-text'>
+          <format attr='text-align' id='dash-text_10' value='left' />
+        </style-rule>
+      </style>
+      <size sizing-mode='automatic' />
+      <zones>
+        <zone h='100000' id='6' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98250' id='9' param='vert' type='layout-flow' w='99010' x='495' y='875'>
+            <zone h='98250' id='7' type='layout-basic' w='99010' x='495' y='875' />
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone h='100300' id='5' is-centered='0' param='D:/Documents/IronHack/projects/Final-Project/pics/Hotel-Room-Safety.jpg' type='bitmap' w='120316' x='-8158' y='2300' />
+        <zone h='77352' id='3' name='TOP 10  Demand - Hotel' show-title='false' w='65418' x='1287' y='17177' />
+        <zone forceUpdate='true' h='6893' id='10' type='text' w='52725' x='3368' y='7659'>
+          <formatted-text>
+            <run fontsize='26'>Which customers are more demanding?</run>
+          </formatted-text>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='18' type='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98476' id='17' param='vert' type='layout-flow' w='99166' x='417' y='762'>
+                <zone fixed-size='280' h='100300' id='5' is-centered='0' is-fixed='true' param='D:/Documents/IronHack/projects/Final-Project/pics/Hotel-Room-Safety.jpg' type='bitmap' w='120316' x='-8158' y='2300'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone forceUpdate='true' h='6893' id='10' type='text' w='52725' x='3368' y='7659'>
+                  <formatted-text>
+                    <run fontsize='26'>Which customers are more demanding?</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='77352' id='3' is-fixed='true' name='TOP 10  Demand - Hotel' show-title='false' w='65418' x='1287' y='17177'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{277759B4-0BE5-4368-8690-2BB7B8FFB6A2}' />
+    </dashboard>
+    <dashboard name='Resturant Demand'>
+      <style>
+        <style-rule element='dash-text'>
+          <format attr='text-align' id='dash-text_10' value='left' />
+        </style-rule>
+      </style>
+      <size sizing-mode='automatic' />
+      <zones>
+        <zone h='100300' id='5' param='D:/Documents/IronHack/projects/Final-Project/pics/restaurant.jpg' type='bitmap' w='120316' x='-8158' y='2300' />
+        <zone forceUpdate='true' h='6893' id='10' type='text' w='52723' x='1547' y='3501'>
+          <formatted-text>
+            <run fontsize='26'>Which customers are more demanding?</run>
+          </formatted-text>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='background-color' value='#33333384' />
+          </zone-style>
+        </zone>
+        <zone h='92998' id='20' name='TOP 10  Demand - Restaurants' show-title='false' w='81568' x='1697' y='11816'>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='1' />
+            <format attr='background-color' value='#33333384' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='18' type='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98476' id='17' param='vert' type='layout-flow' w='99166' x='417' y='762'>
+                <zone fixed-size='280' h='100300' id='19' is-centered='0' is-fixed='true' param='D:/Documents/IronHack/projects/Final-Project/pics/Hotel-Room-Safety.jpg' type='bitmap' w='120316' x='-8158' y='2300'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone forceUpdate='true' h='6893' id='10' type='text' w='52725' x='3368' y='7659'>
+                  <formatted-text>
+                    <run fontsize='26'>Which customers are more demanding?</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{8CCC62B4-FAEC-4121-BE49-4B82A164D475}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='worksheet' name='Business Distribution'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1d39w141bcdhi6185dynt112c2v3].[none:business_type:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <default-map-tool-selection tool='1' />
+      </viewpoint>
+      <simple-id uuid='{4DF97AAF-48B7-40F1-A14B-A9697ED88A3A}' />
+    </window>
+    <window class='worksheet' name='Reviews Per Nationality'>
+      <cards>
+        <edge name='left'>
+          <strip size='185'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+      </viewpoint>
+      <simple-id uuid='{1DD506D0-798C-4283-AFE3-5DA149DC2ED2}' />
+    </window>
+    <window class='dashboard' name='Hotel Demand'>
+      <viewpoints>
+        <viewpoint name='TOP 10  Demand - Hotel' />
+      </viewpoints>
+      <active id='3' />
+      <simple-id uuid='{7E3F92AC-78F7-4E27-AD82-732437219D6E}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Resturant Demand'>
+      <viewpoints>
+        <viewpoint name='TOP 10  Demand - Restaurants' />
+      </viewpoints>
+      <active id='10' />
+      <simple-id uuid='{34DCC468-7317-4409-A655-ED5B4C96FD84}' />
+    </window>
+    <window class='worksheet' name='TOP 10  Demand - Hotel'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{7116127E-5CB9-4E1C-B1AA-99737A68CC3C}' />
+    </window>
+    <window class='worksheet' name='TOP 10  Demand - Restaurants'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{FADFCBB9-0D73-47A1-A0F3-262CB87A6DC5}' />
+    </window>
+    <window class='worksheet' name='Customer Profile'>
+      <cards>
+        <edge name='left'>
+          <strip size='239'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{5555C85F-9F7B-4F8A-8D46-4CDD42DD78F7}' />
+    </window>
+  </windows>
+</workbook>

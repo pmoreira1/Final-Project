@@ -48,3 +48,20 @@ def create_pd_engine():
     return create_engine(
             'mysql+mysqlconnector://' + user + ':' + password + '@' + host + ':' + port + '/' + database)
 
+
+def get_business_list(category, country):
+    query = "SELECT * from business where category = '"+str(category)+"' and country = '"+str(country)+"'"
+    return db.select(query, all=True)
+
+
+def get_business_details(id):
+    query = "SELECT * from business where idbusiness = '" + str(id) + "'"
+    return db.select(query, all=False)
+
+def binner(x):
+    if x < 0.8:
+        return 1
+    elif x < 0.9:
+        return 2
+    else:
+        return 3

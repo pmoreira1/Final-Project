@@ -14,12 +14,14 @@ driver = webdriver.Chrome('chromedriver.exe')
 # chrome_options = Options()
 # chrome_options.add_argument("--headless")
 # driver = webdriver.Chrome('/usr/bin/chromedriver', options=chrome_options)
-for i in range(100):
+for i in range(2033):
     q = "SELECT * FROM business where platform = 'yelp' and updated = 0 ORDER BY RAND() LIMIT 1"
     business = fc.db.select(q, all=True)
     for b in business:
         url = 'https://api.yelp.com/v3/businesses/'+b['idPlatform']+'/reviews'
         r = requests.get(url, headers=headers)
+        if 'reviews' not in r.json():
+            continue
         result = r.json()['reviews']
         for review in result:
             user_profile = review['user']['profile_url']
@@ -28,7 +30,7 @@ for i in range(100):
             soup = BeautifulSoup(content, "html.parser")
             review_origin = soup.find('h3', attrs={'class': 'user-location alternate'})
             # Split and get last value
-            if review_origin.text is not None:
+            if review_origin is not None:
                 review_details = review_origin.text.split(', ')
             else:
                 continue
