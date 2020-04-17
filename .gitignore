@@ -5,6 +5,5 @@ venv/
 data/
 models/
 results/
-pics/
 *.exe
 *.log
