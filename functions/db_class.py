@@ -1,15 +1,20 @@
 import mysql.connector
 from sqlalchemy import create_engine
+import configparser
+import os
+config = configparser.ConfigParser()
 
 
 class Db:
 
     def __init__(self):
-        self.host = 'ironhack.c1wtctuqirxg.eu-central-1.rds.amazonaws.com'
-        self.port = '3306'
-        self.user = 'final_admin'
-        self.password = 'GBL7CG93bgc4!jT%'
-        self.database = 'final_project'
+        # print(config_file)
+        config.read('functions/cred.ini')
+        self.host = config['mysql']['host']
+        self.port = config['mysql']['port']
+        self.user = config['mysql']['username']
+        self.password = config['mysql']['password']
+        self.database = config['mysql']['database']
 
     def connect(self):
         cnx = mysql.connector.connect(
